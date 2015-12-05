@@ -1,0 +1,10 @@
+<launch>
+
+    <node
+        pkg="omega_device"
+        type="omega_talker"
+        name="omega_input">
+
+    </node>
+
+</launch>

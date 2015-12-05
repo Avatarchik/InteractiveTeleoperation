@@ -1,0 +1,15 @@
+<launch>
+    <!-- FREENECT -->
+    <!-- <include file="$(find pac_ui_launcher)/launch/freenect.launch" /> -->
+    <!-- You need to do it by yourself -->
+    <!-- rosrun kinect2_bridge kinect2_bridge -->
+
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
+        <arg name="port" value="8080"/>
+    </include>
+
+    <node pkg="depth_image_processing" type="node" name="node" required="true" output="screen">
+        <param name="input" value="/kinect2/depth_rect/image"/>
+        <param name="camera_info" value="/kinect2/depth_rect/camera_info"/>
+    </node>
+</launch>
